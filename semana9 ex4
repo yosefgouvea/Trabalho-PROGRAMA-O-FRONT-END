@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Bank</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 380px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #222;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 5px;
+      line-height: 1.8;
+    }
+
+    .destaque {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>💳 Infinity Bank</h2>
+
+    <label>Bandeira do Cartão</label>
+    <select id="bandeira">
+      <option value="visa">Visa</option>
+      <option value="master">Master</option>
+      <option value="elo">Elo</option>
+    </select>
+
+    <label>Valor da Venda</label>
+    <input type="number" id="valor" placeholder="Digite o valor">
+
+    <label>Quantidade de Parcelas</label>
+    <input type="number" id="parcelas" placeholder="Digite a quantidade">
+
+    <button id="btnCalcular">Simular Venda</button>
+
+    <div id="resultado"></div>
+
+  </div>
+
+  <script>
+
+    const botao = document.getElementById("btnCalcular");
+
+    botao.addEventListener("click", function() {
+
+      const bandeira = document.getElementById("bandeira").value;
+      const valor = Number(document.getElementById("valor").value);
+      const parcelas = Number(document.getElementById("parcelas").value);
+
+      let taxaPercentual = 0;
+
+      // Taxa da bandeira usando switch
+      switch(bandeira) {
+
+        case "visa":
+          taxaPercentual = 0.02;
+          break;
+
+        case "master":
+          taxaPercentual = 0.0185;
+          break;
+
+        case "elo":
+          taxaPercentual = 0.03;
+          break;
+
+        default:
+          taxaPercentual = 0;
+      }
+
+      // Cálculo da taxa da bandeira
+      const taxaBandeira = valor * taxaPercentual;
+
+      // Juros simples
+      const juros = valor * (0.015 * parcelas);
+
+      // Taxa mensal fixa
+      const taxaMensal = 12.50 * parcelas;
+
+      // Valor total
+      const valorTotal = valor + taxaBandeira + juros + taxaMensal;
+
+      // Valor de cada parcela
+      const valorParcela = valorTotal / parcelas;
+
+      const resultado = document.getElementById("resultado");
+
+      resultado.innerHTML = `
+        <p><strong>Bandeira:</strong> ${bandeira.toUpperCase()}</p>
+
+        <p><strong>Valor da Venda:</strong> 
+        R$ ${valor.toFixed(2)}</p>
+
+        <p><strong>Taxa da Bandeira:</strong> 
+        R$ ${taxaBandeira.toFixed(2)}</p>
+
+        <p><strong>Valor dos Juros:</strong> 
+        R$ ${juros.toFixed(2)}</p>
+
+        <p><strong>Taxa Mensal:</strong> 
+        R$ ${taxaMensal.toFixed(2)}</p>
+
+        <p class="destaque">
+          Valor de Cada Parcela: 
+          R$ ${valorParcela.toFixed(2)}
+        </p>
+
+        <p class="destaque">
+          Valor Total: 
+          R$ ${valorTotal.toFixed(2)}
+        </p>
+      `;
+
+    });
+
+  </script>
+
+</body>
+</html>
