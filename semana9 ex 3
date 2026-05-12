@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Média Escolar</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .aprovado {
+      background-color: #cce5ff;
+      color: blue;
+    }
+
+    .exame {
+      background-color: #d4edda;
+      color: green;
+    }
+
+    .reprovado {
+      background-color: #f8d7da;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Média Escolar</h2>
+
+    <input type="text" id="nome" placeholder="Nome do aluno">
+
+    <input type="number" id="nota1" placeholder="Nota 1">
+    <input type="number" id="nota2" placeholder="Nota 2">
+    <input type="number" id="nota3" placeholder="Nota 3">
+
+    <button id="calcular">Calcular Média</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const botao = document.getElementById("calcular");
+
+    botao.addEventListener("click", function () {
+
+      const nome = document.getElementById("nome").value;
+
+      // Convertendo para Number
+      const nota1 = Number(document.getElementById("nota1").value);
+      const nota2 = Number(document.getElementById("nota2").value);
+      const nota3 = Number(document.getElementById("nota3").value);
+
+      const media = (nota1 + nota2 + nota3) / 3;
+
+      const resultado = document.getElementById("resultado");
+
+      // Limpando classes anteriores
+      resultado.className = "";
+
+      if (media >= 7 && media <= 10) {
+
+        resultado.classList.add("aprovado");
+
+        resultado.innerHTML = `
+          Aluno: ${nome} <br>
+          Média: ${media.toFixed(2)} <br>
+          Situação: APROVADO
+        `;
+
+      } else if (media >= 4 && media < 7) {
+
+        const falta = 10 - media;
+
+        resultado.classList.add("exame");
+
+        resultado.innerHTML = `
+          Aluno: ${nome} <br>
+          Média: ${media.toFixed(2)} <br>
+          Situação: EXAME <br>
+          Faltam ${falta.toFixed(2)} pontos para atingir 10.
+        `;
+
+      } else {
+
+        resultado.classList.add("reprovado");
+
+        resultado.innerHTML = `
+          Aluno: ${nome} <br>
+          Média: ${media.toFixed(2)} <br>
+          Situação: REPROVADO
+        `;
+      }
+
+    });
+  </script>
+
+</body>
+</html>
