@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor Dinâmico</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Conversor de Temperatura</h2>
+
+    <label>Celsius (°C)</label>
+    <input type="number" id="celsius" step="0.1" placeholder="Digite em Celsius">
+
+    <label>Fahrenheit (°F)</label>
+    <input type="number" id="fahrenheit" step="0.1" placeholder="Digite em Fahrenheit">
+  </div>
+
+  <script>
+
+    const celsius = document.getElementById("celsius");
+    const fahrenheit = document.getElementById("fahrenheit");
+
+    // Celsius -> Fahrenheit
+    celsius.addEventListener("input", function() {
+
+      const c = Number(celsius.value);
+
+      const f = (c * 9/5) + 32;
+
+      fahrenheit.value = f.toFixed(2);
+
+      // Limpa campo oposto se apagar valor
+      if(celsius.value === "") {
+        fahrenheit.value = "";
+      }
+
+    });
+
+    // Fahrenheit -> Celsius
+    fahrenheit.addEventListener("input", function() {
+
+      const f = Number(fahrenheit.value);
+
+      const c = (f - 32) * 5/9;
+
+      celsius.value = c.toFixed(2);
+
+      // Limpa campo oposto se apagar valor
+      if(fahrenheit.value === "") {
+        celsius.value = "";
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
