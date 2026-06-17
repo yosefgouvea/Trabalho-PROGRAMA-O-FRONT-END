@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menuzinho Front End</title>
+</head>
+<body>
+    <header><h1>Menu das atividade de Front End</h1></header>
+    <h2><a href="semana9 ex 1.html" target="_blank">Coleção(1)</a></h2><br>
+    <h2><a href="semana9 ex 2." target="_blank">Material de estudo(2)</a></h2><br>
+    <h2><a href="semana9 ex 3" target="blank">Atividade de css(3)</a></h2><br>
+    <h2><a href="semana9 ex 4" target="blank">Atividade do DaisyUI(4)</a></h2><br>
+    <h2><a href="Bootstrap.html" target="blank">Atividade do Bootstrap(5)</a></h2><br>
+    <h2><a href="./Js/bichinho.html" target"_blank">Atividade de JS com easter egg(6)</h2><br>
+    <h2><a href="./Prova1Sem/menu.html" target"_blank">Prova 1 Semestre</h2><br>
+</body>
+
+</html>
