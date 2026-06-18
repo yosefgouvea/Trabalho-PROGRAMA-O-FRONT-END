@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Pet Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        /* Animação suave de "flutuar" para o bichinho */
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-12px); }
+        }
+        #b { animation: flutuar 3s ease-in-out infinite; }
+    </style>
+</head>
+
+<body id="corpo" class="min-h-screen flex flex-col transition-all duration-1000" style="
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+">
+
+    <!-- Cabeçalho -->
+    <div class="w-full flex items-center justify-start p-6 gap-4 bg-black/20 backdrop-blur-sm">
+        <div class="avatar">
+            <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img id="avatar-img" src="b_a.png" />
+            </div>
+        </div>
+        <input id="input-nome" type="text" placeholder="Nome da criatura..." class="input input-secondary bg-white/80" />
+
+        <div class="ml-auto flex items-center gap-2">
+            <span class="text-white font-bold">☀️</span>
+            <input type="checkbox" class="toggle toggle-primary" id="toggle-clima" />
+            <span class="text-white font-bold">🌙</span>
+        </div>
+    </div>
+
+    <!-- Área principal -->
+    <div class="flex-grow flex flex-col items-center justify-center w-full px-4 relative">
+
+        <img id="b" src="b_n.png" alt="Pet" class="w-full max-w-md h-auto" />
+
+        <!-- Barra de fome -->
+        <div class="w-full max-w-md mt-6">
+            <div class="flex justify-between text-white font-bold mb-1 px-1 drop-shadow">
+                <span>Fome</span>
+                <span id="status-texto">Saudável</span>
+            </div>
+            <progress id="barra-fome" class="progress progress-success w-full" value="100" max="100"></progress>
+        </div>
+
+        <div class="mt-8 flex justify-center w-full">
+            <img id="btn" src="btn.png" alt="Cookie"
+                class="w-1/3 max-w-[150px] h-auto cursor-pointer active:scale-75 transition-transform hover:rotate-12"
+                onclick="alimentar()" />
+        </div>
+    </div>
+
+    <!-- Área secreta -->
+    <div id="area-secreta" style="text-align: left; margin-top: 20px; border: 2px dashed #cccccc00; padding: 20px;">
+        <button id="btn-revelar">🎁</button>
+        <div id="container-foto" style="margin-top: 30px;"></div>
+    </div>
+
+    <script src="scriptbicho.js"></script>
+</body>
+
+</html>
