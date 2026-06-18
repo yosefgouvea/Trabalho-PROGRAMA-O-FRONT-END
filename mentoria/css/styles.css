@@ -1,0 +1,158 @@
+/* ================================================
+   MentorIA — estilos customizados sobre Bootstrap 5
+   ================================================ */
+
+/* --- Variáveis de design --- */
+:root {
+  --primary: #3B5BDB;
+  --primary-dark: #2f4bc4;
+  --accent: #FCC419;
+  --bg: #F8F9FA;
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background-color: var(--bg);
+}
+
+/* --- Hero (landing page) --- */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #5c7cfa 100%);
+  color: white;
+  padding: 100px 0;
+}
+
+/* --- Cards de mentor --- */
+.mentor-card {
+  border: none;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.mentor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* --- Estrelas --- */
+.stars {
+  color: var(--accent);
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+}
+
+/* --- Badges de matéria --- */
+.badge-materia {
+  background-color: rgba(59, 91, 219, 0.12);
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.35em 0.65em;
+  border-radius: 0.4rem;
+}
+
+/* --- Badge de comissão --- */
+.commission-badge {
+  background-color: rgba(252, 196, 25, 0.2);
+  color: #7d5a00;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* --- Botão de destaque (amarelo) --- */
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #212529;
+  font-weight: 600;
+}
+
+.btn-accent:hover {
+  background-color: #e6b010;
+  border-color: #e6b010;
+  color: #212529;
+}
+
+/* --- Override de cor do Bootstrap primary --- */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: none;
+}
+
+/* --- Ícone de passo (landing page) --- */
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(59, 91, 219, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.8rem;
+}
+
+/* --- Foto do mentor na página de perfil --- */
+.mentor-photo-lg {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+}
+
+/* --- Avatar de iniciais (avaliações) --- */
+.avatar-initials {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* --- Título de seção --- */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #212529;
+  color: #adb5bd;
+}
+
+footer a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* --- Responsividade extra --- */
+@media (max-width: 576px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .mentor-photo-lg {
+    width: 120px;
+    height: 120px;
+  }
+}

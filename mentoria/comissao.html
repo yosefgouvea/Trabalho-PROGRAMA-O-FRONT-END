@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como funciona a comissão — MentorIA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html" style="color: #3B5BDB;">🎓 MentorIA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="mentores.html">Mentores</a></li>
+          <li class="nav-item"><a class="nav-link active" href="comissao.html">Como funciona</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-primary px-3" href="cadastro.html">Seja mentor</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CABEÇALHO -->
+  <div class="bg-white border-bottom py-4">
+    <div class="container">
+      <h1 class="fw-bold mb-1">Como funciona a comissão</h1>
+      <p class="text-muted mb-0">Um modelo que recompensa quem entrega resultado.</p>
+    </div>
+  </div>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <!-- Explicação do modelo -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-3">🎯 O princípio</h4>
+              <p>
+                Na MentorIA, a comissão que a plataforma retém sobre cada aula
+                <strong>diminui conforme a avaliação do mentor sobe</strong>. Quanto melhor você
+                atende seus alunos, mais dinheiro fica no seu bolso.
+              </p>
+              <p class="mb-0">
+                Isso cria um incentivo direto para que os mentores se dediquem
+                à qualidade — e os alunos recebem um serviço cada vez melhor.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tabela de faixas -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-3">📊 Tabela de faixas</h4>
+              <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle mb-0">
+                  <thead style="background-color: rgba(59,91,219,0.1);">
+                    <tr>
+                      <th>Avaliação média</th>
+                      <th>Comissão da plataforma</th>
+                      <th>Mentor recebe (ex: R$60/h)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-success">
+                      <td><span class="stars">★★★★★</span> 4.8 – 5.0</td>
+                      <td><span class="badge bg-success fs-6">10%</span></td>
+                      <td class="fw-bold">R$ 54,00/h</td>
+                    </tr>
+                    <tr>
+                      <td><span class="stars">★★★★☆</span> 4.5 – 4.79</td>
+                      <td><span class="badge bg-primary fs-6">15%</span></td>
+                      <td class="fw-bold">R$ 51,00/h</td>
+                    </tr>
+                    <tr>
+                      <td><span class="stars">★★★★☆</span> 4.0 – 4.49</td>
+                      <td><span class="badge bg-warning text-dark fs-6">20%</span></td>
+                      <td class="fw-bold">R$ 48,00/h</td>
+                    </tr>
+                    <tr class="table-danger">
+                      <td><span class="stars">★★★☆☆</span> Abaixo de 4.0</td>
+                      <td><span class="badge bg-danger fs-6">25%</span></td>
+                      <td class="fw-bold">R$ 45,00/h</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculadora interativa -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-3">🧮 Simule seus ganhos</h4>
+              <div class="row g-3 align-items-end">
+                <div class="col-sm-5">
+                  <label for="simPreco" class="form-label fw-semibold">Preço por hora (R$)</label>
+                  <input type="number" class="form-control" id="simPreco" value="50" min="1" max="500">
+                </div>
+                <div class="col-sm-5">
+                  <label for="simRating" class="form-label fw-semibold">Sua avaliação</label>
+                  <input type="number" class="form-control" id="simRating" value="4.5" min="0" max="5" step="0.1">
+                </div>
+                <div class="col-sm-2">
+                  <button class="btn btn-primary w-100" onclick="calcular()">Calcular</button>
+                </div>
+              </div>
+              <div id="resultado-sim" class="mt-3 p-3 rounded d-none" style="background: rgba(59,91,219,0.07);">
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="text-center">
+            <p class="text-muted mb-3">Pronto para começar a ensinar e ganhar?</p>
+            <a href="cadastro.html" class="btn btn-primary btn-lg px-5">Cadastre-se como mentor</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white fw-bold">🎓 MentorIA</h6>
+          <p class="small">Conectando mentores e alunos em toda a universidade.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Links</h6>
+          <ul class="list-unstyled small">
+            <li><a href="mentores.html">Encontrar mentor</a></li>
+            <li><a href="cadastro.html">Ser mentor</a></li>
+            <li><a href="comissao.html">Como funciona</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Modelo de Negócio</h6>
+          <p class="small">
+            Comissão variável: quanto maior sua avaliação, menos você paga.
+            <a href="comissao.html">Saiba mais →</a>
+          </p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="text-center small mb-0">© 2026 MentorIA — Trabalho Acadêmico</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/commission.js"></script>
+  <script>
+    /** Calcula e exibe o resultado da simulação interativa. */
+    function calcular() {
+      const preco  = parseFloat(document.getElementById('simPreco').value);
+      const rating = parseFloat(document.getElementById('simRating').value);
+      const div    = document.getElementById('resultado-sim');
+
+      if (isNaN(preco) || preco <= 0 || isNaN(rating) || rating < 0 || rating > 5) {
+        div.innerHTML = '<p class="text-danger mb-0">Informe valores válidos (preço > 0, avaliação 0–5).</p>';
+        div.classList.remove('d-none');
+        return;
+      }
+
+      const { percent } = getCommission(rating);
+      const net = getNetPrice(preco, rating);
+
+      div.innerHTML = `
+        <div class="d-flex justify-content-between mb-1">
+          <span>Avaliação:</span> <strong>${rating}</strong>
+        </div>
+        <div class="d-flex justify-content-between mb-1">
+          <span>Comissão aplicada:</span> <strong>${percent}</strong>
+        </div>
+        <div class="d-flex justify-content-between mb-1">
+          <span>Preço bruto:</span> <strong>R$ ${preco.toFixed(2)}/h</strong>
+        </div>
+        <hr class="my-2">
+        <div class="d-flex justify-content-between">
+          <span class="fw-bold">Você recebe:</span>
+          <strong class="text-success fs-5">R$ ${net.toFixed(2)}/h</strong>
+        </div>
+      `;
+      div.classList.remove('d-none');
+    }
+  </script>
+</body>
+</html>

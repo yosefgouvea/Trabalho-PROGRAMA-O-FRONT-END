@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Mentor — MentorIA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html" style="color: #3B5BDB;">🎓 MentorIA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="mentores.html">Mentores</a></li>
+          <li class="nav-item"><a class="nav-link" href="comissao.html">Como funciona</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-primary px-3 active" href="cadastro.html">Seja mentor</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CABEÇALHO -->
+  <div class="bg-white border-bottom py-4">
+    <div class="container">
+      <h1 class="fw-bold mb-1">Cadastre-se como mentor</h1>
+      <p class="text-muted mb-0">Compartilhe seu conhecimento e ganhe uma renda extra.</p>
+    </div>
+  </div>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+          <!-- ALERTA DE SUCESSO (inicialmente oculto) -->
+          <div id="alerta-sucesso" class="alert alert-success d-none" role="alert">
+            🎉 <strong>Cadastro enviado!</strong> Em breve entraremos em contato para validar seu perfil.
+          </div>
+
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4 p-md-5">
+              <form id="formCadastro" novalidate>
+
+                <!-- Nome -->
+                <div class="mb-3">
+                  <label for="nome" class="form-label fw-semibold">Nome completo *</label>
+                  <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                  <div class="invalid-feedback">Por favor, informe seu nome.</div>
+                </div>
+
+                <!-- Semestre -->
+                <div class="mb-3">
+                  <label for="semestre" class="form-label fw-semibold">Semestre atual *</label>
+                  <select class="form-select" id="semestre" required>
+                    <option value="">Selecione...</option>
+                    <option value="1">1º semestre</option>
+                    <option value="2">2º semestre</option>
+                    <option value="3">3º semestre</option>
+                    <option value="4">4º semestre</option>
+                    <option value="5">5º semestre</option>
+                    <option value="6">6º semestre</option>
+                    <option value="7">7º semestre</option>
+                    <option value="8">8º semestre</option>
+                    <option value="9">9º semestre</option>
+                    <option value="10">10º semestre</option>
+                  </select>
+                  <div class="invalid-feedback">Selecione seu semestre.</div>
+                </div>
+
+                <!-- Matérias -->
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">Matérias que você ensina *</label>
+                  <div id="materias-checkboxes" class="row g-2">
+                    <!-- Gerado por JS -->
+                  </div>
+                  <div id="materias-erro" class="text-danger small mt-1 d-none">
+                    Selecione pelo menos uma matéria.
+                  </div>
+                </div>
+
+                <!-- Preço -->
+                <div class="mb-3">
+                  <label for="preco" class="form-label fw-semibold">Preço por hora (R$) *</label>
+                  <div class="input-group">
+                    <span class="input-group-text">R$</span>
+                    <input type="number" class="form-control" id="preco"
+                           placeholder="ex: 50" min="1" max="500" required>
+                  </div>
+                  <div class="invalid-feedback">Informe um preço entre R$1 e R$500.</div>
+                </div>
+
+                <!-- Bio -->
+                <div class="mb-4">
+                  <label for="bio" class="form-label fw-semibold">Apresentação *</label>
+                  <textarea class="form-control" id="bio" rows="4"
+                            placeholder="Fale um pouco sobre você, sua experiência e como você pode ajudar..." required
+                            minlength="30"></textarea>
+                  <div class="form-text">Mínimo de 30 caracteres.</div>
+                  <div class="invalid-feedback">Escreva uma apresentação de pelo menos 30 caracteres.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                  Enviar cadastro
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+          <p class="text-center text-muted small mt-3">
+            Ao se cadastrar, você concorda com as
+            <a href="comissao.html">regras de comissão</a> da plataforma.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white fw-bold">🎓 MentorIA</h6>
+          <p class="small">Conectando mentores e alunos em toda a universidade.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Links</h6>
+          <ul class="list-unstyled small">
+            <li><a href="mentores.html">Encontrar mentor</a></li>
+            <li><a href="cadastro.html">Ser mentor</a></li>
+            <li><a href="comissao.html">Como funciona</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h6 class="text-white">Modelo de Negócio</h6>
+          <p class="small">
+            Comissão variável: quanto maior sua avaliação, menos você paga.
+            <a href="comissao.html">Saiba mais →</a>
+          </p>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="text-center small mb-0">© 2026 MentorIA — Trabalho Acadêmico</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/commission.js"></script>
+  <script src="js/cadastro.js"></script>
+</body>
+</html>
